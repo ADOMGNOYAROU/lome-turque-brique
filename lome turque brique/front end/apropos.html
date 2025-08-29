@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Lomé Turque</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== STYLES GÉNÉRAUX ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* ===== HEADER / NAVIGATION ===== */
+        header {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            background-color: #e67e22;
+        }
+        
+        /* ===== SECTION HERO ===== */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(..//image/C1.jpg) no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* ===== SECTION HISTOIRE ===== */
+        .histoire {
+            padding: 60px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .histoire h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .histoire-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .histoire-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .histoire-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .histoire-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .histoire-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .histoire-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* ===== SECTION VALEURS ===== */
+        .valeurs {
+            padding: 60px 0;
+            background-color: #f1f1f1;
+            margin-bottom: 40px;
+        }
+        
+        .valeurs h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .valeurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .valeur-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .valeur-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .valeur-icon {
+            font-size: 2.5rem;
+            color: #e67e22;
+            margin-bottom: 20px;
+        }
+        
+        .valeur-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        /* ===== SECTION ÉQUIPE ===== */
+        .equipe {
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .equipe h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .membres {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .membre {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .membre:hover {
+            transform: translateY(-10px);
+        }
+        
+        .membre-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .membre-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .membre:hover .membre-img img {
+            transform: scale(1.1);
+        }
+        
+        .membre-info {
+            padding: 20px;
+        }
+        
+        .membre-info h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .membre-info p {
+            color: #e67e22;
+            font-weight: 500;
+        }
+        
+        /* ===== SECTION POURQUOI NOUS CHOISIR ===== */
+        .why-us {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 70px 0;
+            margin-bottom: 40px;
+        }
+        
+        .why-us h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* ===== SECTION CHIFFRES ===== */
+        .chiffres {
+            padding: 70px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(..//image/IMG_0788.jpg) no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .chiffres h2 {
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        
+        .chiffres-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .chiffre-item {
+            padding: 20px;
+        }
+        
+        .chiffre-item i {
+            font-size: 2.5rem;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        
+        .chiffre {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p, 
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #e67e22;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* ===== BOUTON WHATSAPP FLOTTANT ===== */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .histoire-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Lomé Turque</a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="apropos.html" class="active">À propos</a></li>
+                <li><a href="temoignages.html">Témoignages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===== SECTION HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>À propos de Lomé Turque</h1>
+            <p>Découvrez notre histoire, notre équipe et les valeurs qui nous animent depuis plusieurs années.</p>
+        </div>
+    </section>
+
+    <!-- ===== SECTION HISTOIRE ===== -->
+    <section class="histoire container">
+        <h2>Notre Histoire</h2>
+        <div class="histoire-content">
+            <div class="histoire-text">
+                <p>
+                    Fondée en 2025 au Togo, Lomé Turque est née de la vision de fournir des matériaux de construction de haute qualité au Togo et dans la région.
+                    Notre objectif est de combiner les techniques traditionnelles de fabrication avec les innovations modernes
+                    pour produire des briques à la fois solides, durables et esthétiques.
+                </p>
+                <p>
+                    Au fil des années, nous avons grandi et modernisé nos installations, mais nous sommes toujours restés fidèles à nos valeurs initiales : 
+                    qualité, respect de l'environnement et satisfaction client. Aujourd'hui, nous sommes fiers d'être l'un des leaders dans notre secteur 
+                    et de contribuer au développement des infrastructures de notre pays.
+                </p>
+                <p>
+                    Notre engagement envers l'excellence nous a permis de participer à des centaines de projets, 
+                    allant de constructions résidentielles à des bâtiments publics et commerciaux.
+                </p>
+            </div>
+            <div class="histoire-image">
+                <img src="..//image/A4.jpg" alt="Usine de production Lomé Turque">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION VALEURS ===== -->
+    <section class="valeurs container">
+        <h2>Nos Valeurs</h2>
+        <div class="valeurs-grid">
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>Qualité</h3>
+                <p>Nous nous engageons à fournir des produits de la plus haute qualité, répondant aux normes internationales les plus strictes.</p>
+            </div>
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Éco-responsabilité</h3>
+                <p>Nous utilisons des procédés de fabrication respectueux de l'environnement et des matériaux durables.</p>
+            </div>
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Équipe</h3>
+                <p>Notre équipe qualifiée et expérimentée est notre atout le plus précieux et garantit l'excellence de nos produits.</p>
+            </div>
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Confiance</h3>
+                <p>Nous construisons des relations durables avec nos clients basées sur la confiance et le respect mutuel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION ÉQUIPE ===== -->
+    <section class="equipe container">
+        <h2>Notre Équipe</h2>
+        <div class="membres">
+            <div class="membre">
+                <div class="membre-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Directeur">
+                </div>
+                <div class="membre-info">
+                    <h3>Jean K.</h3>
+                    <p>Directeur Général</p>
+                </div>
+            </div>
+            <div class="membre">
+                <div class="membre-img">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ingénieur">
+                </div>
+                <div class="membre-info">
+                    <h3>Marie T.</h3>
+                    <p>Ingénieur de production</p>
+                </div>
+            </div>
+            <div class="membre">
+                <div class="membre-img">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial">
+                </div>
+                <div class="membre-info">
+                    <h3>Paul D.</h3>
+                    <p>Responsable Commercial</p>
+                </div>
+            </div>
+            <div class="membre">
+                <div class="membre-img">
+                    <img src="https://irb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Technicien">
+                </div>
+                <div class="membre-info">
+                    <h3>Koffi A.</h3>
+                    <p>Responsable Qualité</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section chiffres supprimée selon demande -->
+
+    <!-- ===== SECTION POURQUOI NOUS CHOISIR ===== -->
+    <section class="why-us">
+        <div class="container">
+            <h2>Pourquoi Nous Choisir ?</h2>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Rapidité d'exécution</h3>
+                    <p>Respect des délais grâce à une organisation optimisée</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Qualité garantie</h3>
+                    <p>Utilisation de matériaux premium et techniques éprouvées</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Équipe expérimentée</h3>
+                    <p>Des professionnels qualifiés à votre service</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-tag"></i>
+                    <h3>Prix compétitifs</h3>
+                    <p>Devis détaillés et transparents sans surprises</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Lomé Turque Brique</h3>
+          <p>Votre partenaire de confiance pour des matériaux de construction de qualité supérieure.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Liens rapides</h3>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="produits.html">Produits</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="temoignages.html">Témoignages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contactez-nous</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Nationale N°1, sous le pont Tsikpo-Noukoudji, Adétikopé, Lomé, Togo</p>
+          <p><i class="fas fa-phone"></i> +228 92 10 43 43</p>
+          <p><i class="fas fa-envelope"></i> <a href="mailto:lometurcbrique@gmail.com" style="display:inline-block;background: var(--primary-color); color:#fff; padding:8px 12px; border-radius:4px; text-decoration:none;">Envoyer un email</a></p>
+          
+          <div class="social-links">
+            <a href="https://www.facebook.com/lome.turc.brique" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@lome.turc.brique?lang=fr" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Lomé Turque Brique. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <!-- ===== BOUTON WHATSAPP FLOTTANT ===== -->
+    <a href="https://wa.me/22870837575" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
